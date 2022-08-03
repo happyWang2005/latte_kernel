@@ -23,14 +23,14 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
-        with: 
-          repository: 'MiCode/Xiaomi_Kernel_OpenSource'
-          ref: latte-l-oss
+      #      - uses: actions/checkout@v3
+      #        with: 
+      #          repository: 'MiCode/Xiaomi_Kernel_OpenSource'
+      #          ref: latte-l-oss
 
       - uses: actions/checkout@v3
         with: 
-          repository: 'torvalds/linux/tree/v3.10'
+          repository: 'torvalds/linux/'
           ref: v3.10
 
       - name: Output host env
