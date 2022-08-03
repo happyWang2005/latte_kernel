@@ -33,7 +33,7 @@ jobs:
           gcc -v
       - name: Fix Makefile
         run: |
-          sed -i '281 a -fno-pie' Makefile
+          sed -i '281 a -fno-pie\' Makefile
 
       # Runs a single command using the runners shell
       - name: Generate config file
