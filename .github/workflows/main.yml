@@ -28,12 +28,17 @@ jobs:
           repository: 'MiCode/Xiaomi_Kernel_OpenSource'
           ref: latte-l-oss
 
+      - uses: actions/checkout@v3
+        with: 
+          repository: 'torvalds/linux/tree/v3.10'
+          ref: v3.10
+
       - name: Output host env
         run: |
           gcc -v
-      - name: Fix Makefile
-        run: |
-          sed -i '381 a -fno-pie\\' Makefile
+          #- name: Fix Makefile
+      #  run: |
+      #    sed -i '381 a -fno-pie\\' Makefile
 
       # Runs a single command using the runners shell
       - name: Generate config file
@@ -44,4 +49,4 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Build the kernel
         run: |
-          make all
+          make modules
