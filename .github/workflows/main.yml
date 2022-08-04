@@ -10,6 +10,8 @@ on:
 jobs:
   build: 
     runs-on: ubuntu-latest
+    env:
+      GITHUB_PATH=$GITHUB_PATH:~/bin
     #    container:
     #      image: ghcr.io/anyakichi/aosp-builder:14.04
     #      credentials:
@@ -31,6 +33,7 @@ jobs:
 
       - name: Output host env
         run: |
+          env
           gcc -v
           python3 -V
           ls
@@ -38,7 +41,6 @@ jobs:
       - name: Download repo tool
         run: |
           mkdir ~/bin
-          PATH=~/bin:$PATH
           curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
           chmod a+x ~/bin/repo
 
