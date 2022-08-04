@@ -45,7 +45,7 @@ jobs:
         run: |
           make help
           make defconfig ARCH=x86_64
-          make kvmconfig ARCH=x86_64
+          #make kvmconfig ARCH=x86_64
 
       # Runs a set of commands using the runners shell
       - name: Build the kernel
