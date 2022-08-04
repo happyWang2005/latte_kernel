@@ -18,31 +18,32 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.github_token }}
 
-        #    steps:
-        #            - uses: actions/checkout@v3
-        #              with: 
-        #                repository: 'MiCode/Xiaomi_Kernel_OpenSource'
-        #                ref: latte-l-oss
-        #
-        #      #      - uses: actions/checkout@v3
-        #      #        with: 
-        #      #          repository: 'torvalds/linux'
-        #      #          ref: v3.10
-        #
-        #      - name: Output host env
-        #        run: |
-        #          gcc -v
-        #          ls
-        #      - name: Fix Makefile
-        #        run: |
-        #          sed -i '381 a -fno-pie\\' Makefile
-        #
-        #      - name: Generate config file
-        #        run: |
-        #          make help
-        #          make defconfig ARCH=x86_64
-        #          make kvmconfig ARCH=x86_64
-        #
-        #      - name: Build the kernel
-        #        run: |
-        #          make modules
+    steps:
+      - uses: actions/checkout@v3
+        with: 
+          repository: 'MiCode/Xiaomi_Kernel_OpenSource'
+          ref: latte-l-oss
+    
+    #      - uses: actions/checkout@v3
+    #        with: 
+    #          repository: 'torvalds/linux'
+    #          ref: v3.10
+
+      - name: Output host env
+        run: |
+          gcc -v
+          ls
+
+      - name: Fix Makefile
+        run: |
+          sed -i '381 a -fno-pie\\' Makefile
+
+      - name: Generate config file
+        run: |
+          make help
+          make defconfig ARCH=x86_64
+          make kvmconfig ARCH=x86_64
+
+      - name: Build the kernel
+        run: |
+          make modules
