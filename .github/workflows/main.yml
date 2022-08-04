@@ -11,7 +11,7 @@ jobs:
   build: 
     runs-on: ubuntu-latest
     env:
-      GITHUB_PATH=$GITHUB_PATH:~/bin
+      GITHUB_PATH: $GITHUB_PATH:~/bin
     #    container:
     #      image: ghcr.io/anyakichi/aosp-builder:14.04
     #      credentials:
