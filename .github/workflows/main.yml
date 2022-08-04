@@ -13,7 +13,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/anyakichi/aosp-builder
+      image: docker.io/anyakichi/aosp-builder
       credentials:
         username: ${{ github.actor }}
         password: ${{ secrets.github_token }}
