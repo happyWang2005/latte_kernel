@@ -12,7 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/anyakichi/aosp-builder:14.04
-      image: ghcr.io/tunathu/aosp-monthly:latest
       credentials:
         username: ${{ github.actor }}
         password: ${{ secrets.github_token }}
