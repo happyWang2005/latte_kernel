@@ -10,13 +10,11 @@ on:
 jobs:
   build: 
     runs-on: ubuntu-latest
-    env:
-      GITHUB_PATH: $GITHUB_PATH:~/bin
-    #    container:
-    #      image: ghcr.io/anyakichi/aosp-builder:14.04
-    #      credentials:
-    #        username: ${{ github.actor }}
-    #        password: ${{ secrets.github_token }}
+    container:
+      image: ghcr.io/anyakichi/aosp-builder:18.04
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.github_token }}
 
         #    container:
         #      image: ghcr.io/tunathu/aosp-monthly:latest
