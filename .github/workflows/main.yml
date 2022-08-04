@@ -25,6 +25,12 @@ jobs:
 
 
     steps:
+      - name: Output host env
+        run: |
+          gcc -v
+          python3 -V
+          ls
+
       - name: Download repo tool
         run: |
           mkdir ~/bin
@@ -34,7 +40,6 @@ jobs:
 
       - name: init repo
         run: |
-          apt update && apt install python3
           repo init -u https://android.googlesource.com/platform/manifest -b android-5.1.1_r38
 
       - name: Download android source trees
@@ -52,10 +57,10 @@ jobs:
     #          repository: 'torvalds/linux'
     #          ref: v3.10
 
-      - name: Output host env
-        run: |
-          gcc -v
-          ls
+
+
+
+
 
       - name: Fix Makefile
         run: |
