@@ -16,19 +16,35 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.github_token }}
 
-    container:
-      image: ghcr.io/tunathu/aosp-monthly:latest
-      credentials:
-        username: ${{ github.actor }}
-        password: ${{ secrets.github_token }}
+        #    container:
+        #      image: ghcr.io/tunathu/aosp-monthly:latest
+        #      credentials:
+        #        username: ${{ github.actor }}
+        #        password: ${{ secrets.github_token }}
 
 
 
     steps:
+      - name: Download repo tool
+        run: |
+          mkdir ~/bin
+          PATH=~/bin:$PATH
+          curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+          chmod a+x ~/bin/repo
+
+      -name: init repo
+       run: |
+         repo init -u https://android.googlesource.com/platform/manifest -b android-5.1.1_r38
+
+      -name: Download android source trees
+       run: |
+         repo sync
+
       - uses: actions/checkout@v3
         with: 
           repository: 'MiCode/Xiaomi_Kernel_OpenSource'
           ref: latte-l-oss
+          path:la_kernel
     
     #      - uses: actions/checkout@v3
     #        with: 
