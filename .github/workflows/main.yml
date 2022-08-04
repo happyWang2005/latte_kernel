@@ -19,23 +19,26 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    container: 
+      image: anyakichi/aosp-builder:latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+            - uses: actions/checkout@v3
+              with: 
+                repository: 'MiCode/Xiaomi_Kernel_OpenSource'
+                ref: latte-l-oss
+
       #      - uses: actions/checkout@v3
       #        with: 
-      #          repository: 'MiCode/Xiaomi_Kernel_OpenSource'
-      #          ref: latte-l-oss
-
-      - uses: actions/checkout@v3
-        with: 
-          repository: 'torvalds/linux'
-          ref: v3.10
+      #          repository: 'torvalds/linux'
+      #          ref: v3.10
 
       - name: Output host env
         run: |
           gcc -v
+          ls
       - name: Fix Makefile
         run: |
           sed -i '381 a -fno-pie\\' Makefile
@@ -45,7 +48,7 @@ jobs:
         run: |
           make help
           make defconfig ARCH=x86_64
-          #make kvmconfig ARCH=x86_64
+          make kvmconfig ARCH=x86_64
 
       # Runs a set of commands using the runners shell
       - name: Build the kernel
