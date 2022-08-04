@@ -25,7 +25,7 @@ jobs:
 
 
     steps: 
-      - mame: Fix Package Dependencies
+      - name: Fix Package Dependencies
         run: |
           echo Nothing to do.
 
