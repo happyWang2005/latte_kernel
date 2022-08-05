@@ -20,15 +20,15 @@ jobs:
     steps:
 
       - uses: actions/checkout@v3
-        with:
-          ref: test
-          path: repo
-
-      - uses: actions/checkout@v3
         with: 
           repository: 'MiCode/Xiaomi_Kernel_OpenSource'
           ref: latte-l-oss
           fetch-depth: '1'
+
+      - uses: actions/checkout@v3
+        with:
+          ref: test
+          path: repo
 
       - name: Clone  tools
         uses: actions/checkout@v3
