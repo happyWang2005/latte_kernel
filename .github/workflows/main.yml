@@ -40,6 +40,7 @@ jobs:
         run: |
           mkdir ~/bin
           curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+        export PATH=~/bin/repo:$PATH
           chmod a+x ~/bin/repo
 
       - name: init repo
