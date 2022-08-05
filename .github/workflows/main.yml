@@ -15,8 +15,6 @@ jobs:
       credentials:
         username: ${{ github.actor }}
         password: ${{ secrets.github_token }}
-    env:
-      FILE:
 
     steps:
 
@@ -73,13 +71,14 @@ jobs:
       - name: Get release files name
         id: out-files
         run: |
-          files=$(find out -name "*.ko")
-          echo "::set-output name=files::$files"
+          files=($(find out -name "*.ko"))
+          echo "::set-output name=files::${files[@]}"
 
       - name: 
         uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: test
           file: |
             ${{ steps.out-files.outputs.files }}
 
