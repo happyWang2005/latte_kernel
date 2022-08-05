@@ -69,3 +69,18 @@ jobs:
           cp repo/config out/.config
 
           make O=out -j8 modules
+      - name:Get release files name
+        run: |
+          FILE=$(find out -name "*.ko")
+
+      - name: 
+        uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          file: |
+            $FILE
+
+
+
+
+
