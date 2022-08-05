@@ -65,6 +65,6 @@ jobs:
 
 
           mkdir out
-          cp .config out/.config
+          cp config out/.config
 
           make O=out -j8
