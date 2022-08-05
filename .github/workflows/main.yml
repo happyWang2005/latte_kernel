@@ -73,7 +73,7 @@ jobs:
       - name: Get release files name
         id: out-files
         run: |
-          files=find out -name "*.ko"
+          files=$(find out -name "*.ko")
           echo "::set-output name=files::$files"
 
       - name: 
