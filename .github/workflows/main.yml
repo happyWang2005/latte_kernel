@@ -69,7 +69,7 @@ jobs:
           cp repo/config out/.config
 
           make O=out -j8 modules
-      - name:Get release files name
+      - name: Get release files name
         run: |
           FILE=$(find out -name "*.ko")
 
