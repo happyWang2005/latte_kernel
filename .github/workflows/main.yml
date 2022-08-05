@@ -33,5 +33,8 @@ jobs:
           export ARCH=x86_64
           export SUBARCH=x86_64
           export CROSS_COMPILE=x86_64-linux-android-4.9/bin/x86_64-linux-android-
+
+          mkdir out
+
           make O=out defconfig
           make O=out -j8
