@@ -31,14 +31,13 @@ jobs:
 
       - name: (Debug)Output build env
         run: |
-          ls
-          ls x86_64-linux-android-4.9
+          echo nothing to do.
 
       - name: Build
         run: |
           export ARCH=x86_64
           export SUBARCH=x86_64
-          export CROSS_COMPILE=x86_64-linux-android-4.9/bin/x86_64-linux-android-
+          export CROSS_COMPILE=prebuilts_gcc_linux-x86_x86_x86_64-linux-android-4.9/bin/x86_64-linux-android-
 
           mkdir out
 
