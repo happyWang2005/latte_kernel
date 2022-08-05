@@ -81,7 +81,7 @@ jobs:
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           file: |
-            ${{ steps.out-files.output.files }}
+            ${{ steps.out-files.outputs.files }}
 
 
 
