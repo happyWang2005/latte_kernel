@@ -10,6 +10,12 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/anyakichi/aosp-builder:14.04
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.github_token }}
+
 
     steps:
       - uses: actions/checkout@v3
@@ -21,9 +27,8 @@ jobs:
       - name: Clone  tools
         run: |
           git clone --depth=1 https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/x86/x86_64-linux-android-4.9
-          ls prebuilts
 
-      - name: Run a multi-line script
+      - name: Build
         run: |
           export ARCH=x86_64
           export SUBARCH=x86_64
