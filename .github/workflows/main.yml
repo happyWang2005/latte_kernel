@@ -20,10 +20,13 @@ jobs:
 
       - name: Clone  tools
         run: |
-          git clone --depth=1 https://android.googlesource.com/platform/prebuilts
+          git clone --depth=1 https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/x86/x86_64-linux-android-4.9
           ls prebuilts
 
       - name: Run a multi-line script
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          export ARCH=x86_64
+          export SUBARCH=x86_64
+          export CROSS_COMPILE=x86_64-linux-android-4.9/bin/x86_64-linux-android-
+          make O=out defconfig
+          make O=out -j8
