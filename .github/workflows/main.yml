@@ -22,6 +22,7 @@ jobs:
       - uses: actions/checkout@v3
         with:
           ref: test
+          path: repo
 
       - uses: actions/checkout@v3
         with: 
@@ -65,6 +66,6 @@ jobs:
 
 
           mkdir out
-          cp config out/.config
+          cp repo/config out/.config
 
           make O=out -j8
