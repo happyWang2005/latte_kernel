@@ -80,7 +80,7 @@ jobs:
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: test
-          file: |
+          files: |
             ${{ steps.out-files.outputs.files }}
 
 
