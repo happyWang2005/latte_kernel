@@ -37,6 +37,8 @@ jobs:
           ls x86_64-linux-android-4.9
           echo
           ls x86_64-linux-android-4.9/bin
+          echo
+          x86_64-linux-android-4.9/bin/x86_64-linux-android-gcc
 
       - name: Build
         run: |
