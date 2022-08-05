@@ -41,6 +41,9 @@ jobs:
           ls /lib64/ld-linux-x86-64.so.2
           ls /lib/x86_64-linux-gnu/libm.so.6
           ls /lib/x86_64-linux-gnu/libc.so.6
+          echo
+          ls /etc/ld.so.conf.d/*
+
 
       - name: Fix
         run: |
