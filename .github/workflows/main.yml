@@ -18,13 +18,10 @@ jobs:
           ref: latte-l-oss
           fetch-depth: '1'
 
-      - uses: actions/checkout@v3
-        with: 
-          repository: 'android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9'
-          fetch-depth: '1'
-
-      - name: Run a one-line script
-        run: ls kernel
+      - name: Clone  tools
+        run: |
+          git clone --depth=1 https://android.googlesource.com/platform/prebuilts
+          ls prebuilts
 
       - name: Run a multi-line script
         run: |
