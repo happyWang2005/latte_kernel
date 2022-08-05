@@ -27,7 +27,7 @@ jobs:
       - name: Clone  tools
         uses: actions/checkout@v3
         with: 
-          repository: 'AOSHP/prebuilts_gcc_linux-x86_x86_x86_64-linux-android-4.9'
+        repository: 'Zenfone2-Dev/x86_64-linux-android-4.9'
           path: x86_64-linux-android-4.9
 
       - name: (Debug)Output build env
