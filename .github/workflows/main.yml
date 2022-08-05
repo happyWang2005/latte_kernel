@@ -47,13 +47,13 @@ jobs:
 
       - name: Fix
         run: |
-          echo nothing to do.
+          ln -s $PWD/x86_64-linux-android-4.9/bin/* /usr/bin/
 
       - name: Build
         run: |
           export ARCH=x86_64
           export SUBARCH=x86_64
-          export PATH=$PATH:./x86_64-linux-android-4.9/bin/
+          export PATH=$PATH:$PWD/x86_64-linux-android-4.9/bin/
           export CROSS_COMPILE=x86_64-linux-android-
 
 
