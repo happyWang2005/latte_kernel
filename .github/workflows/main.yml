@@ -61,4 +61,5 @@ jobs:
           mkdir out
 
           make O=out defconfig
+          make O=out kvmconfig
           make O=out -j8
