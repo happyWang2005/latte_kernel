@@ -71,15 +71,17 @@ jobs:
 
           make O=out -j8 modules
       - name: Get release files name
+        id: out-files
         run: |
-          ${{ env.FILE }}=$(find out -name "*.ko")
+          files=find out -name "*.ko"
+          echo "::set-output name=files::$files"
 
       - name: 
         uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           file: |
-            ${{ env.FILE }}
+            ${{ steps.out-files.output.files }}
 
 
 
