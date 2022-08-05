@@ -75,13 +75,17 @@ jobs:
           mapfile array_files < <(find out -name "*.ko")
           echo "::set-output name=files::${array_files[@]}"
 
-      - name: 
-        uses: "marvinpinto/action-automatic-releases@latest"
-        with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: test
-          files: |
-            ${{ steps.out-files.outputs.files }}
+      - name:   debug 
+        run: |
+          echo ${{ steps.out-files.outputs.files }}
+
+          #      - name: 
+          #        uses: "marvinpinto/action-automatic-releases@latest"
+          #        with:
+          #          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          #          automatic_release_tag: test
+          #          files: |
+          #            ${{ steps.out-files.outputs.files }}
 
 
 
