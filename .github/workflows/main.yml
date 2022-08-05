@@ -47,15 +47,14 @@ jobs:
 
       - name: Fix
         run: |
-          apt update
-          apt install libc6
-
+          echo nothing to do.
 
       - name: Build
         run: |
           export ARCH=x86_64
           export SUBARCH=x86_64
-          export CROSS_COMPILE=./x86_64-linux-android-4.9/bin/x86_64-linux-android-
+          export PATH=$PATH:./x86_64-linux-android-4.9/bin/
+          export CROSS_COMPILE=x86_64-linux-android-
 
           mkdir out
 
