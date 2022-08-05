@@ -56,7 +56,6 @@ jobs:
           export PATH=$PATH:./x86_64-linux-android-4.9/bin/
           export CROSS_COMPILE=x86_64-linux-android-
 
-          x86_64-linux-android-gcc
 
           mkdir out
 
