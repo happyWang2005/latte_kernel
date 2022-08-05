@@ -48,6 +48,7 @@ jobs:
       - name: Fix
         run: |
           ln -s $PWD/x86_64-linux-android-4.9/bin/* /usr/bin/
+          sed -i '381 a -fno-pie\\' Makefile
 
       - name: Build
         run: |
