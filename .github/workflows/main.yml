@@ -18,6 +18,11 @@ jobs:
 
 
     steps:
+
+      - uses: actions/checkout@v3
+        with:
+          ref: test
+
       - uses: actions/checkout@v3
         with: 
           repository: 'MiCode/Xiaomi_Kernel_OpenSource'
@@ -49,6 +54,7 @@ jobs:
         run: |
           ln -s $PWD/x86_64-linux-android-4.9/bin/* /usr/bin/
           sed -i '381 a -fno-pie\\' Makefile
+          
 
       - name: Build
         run: |
@@ -59,7 +65,6 @@ jobs:
 
 
           mkdir out
+          cp .config out/.config
 
-          make O=out defconfig
-          make O=out kvmconfig
           make O=out -j8
