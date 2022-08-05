@@ -68,4 +68,4 @@ jobs:
           mkdir out
           cp repo/config out/.config
 
-          make O=out -j8
+          make O=out -j8 modules
