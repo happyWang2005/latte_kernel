@@ -32,7 +32,11 @@ jobs:
 
       - name: (Debug)Output build env
         run: |
-          echo nothing to do.
+          ls
+          echo
+          ls x86_64-linux-android-4.9
+          echo
+          ls x86_64-linux-android-4.9/bin
 
       - name: Build
         run: |
