@@ -38,7 +38,15 @@ jobs:
           echo
           ls x86_64-linux-android-4.9/bin
           echo
-          x86_64-linux-android-4.9/bin/x86_64-linux-android-gcc
+          ls /lib64/ld-linux-x86-64.so.2
+          ls /lib/x86_64-linux-gnu/libm.so.6
+          ls /lib/x86_64-linux-gnu/libc.so.6
+
+      - name: Fix
+        run: |
+          apt update
+          apt install libc6
+
 
       - name: Build
         run: |
