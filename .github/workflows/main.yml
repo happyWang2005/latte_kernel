@@ -27,6 +27,10 @@ jobs:
       - name: Clone  tools
         run: |
           git clone --depth=1 https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/x86/x86_64-linux-android-4.9
+      - name: (Debug)Output build env
+        run: |
+          ls
+          ls x86_64-linux-android-4.9
 
       - name: Build
         run: |
